@@ -1,18 +1,19 @@
 :root {
-  /* Minimal Dark Theme with Eye-Catchy Accents */
-  --bg-color: #060913; /* Very deep tech space blue-black */
-  --text-primary: #e2e8f0;
-  --text-secondary: #8892b0;
+  /* Ocean Breeze Theme */
+  --bg-color: #031321; /* Deep ocean background */
+  --nav-bg: rgba(3, 19, 33, 0.85);
+  --text-primary: #ffffff;
+  --text-secondary: #ade8f4;
   
-  /* Vibrant Accents (Emerald / Fuel Theme) */
-  --accent-cyan: #10b981;
-  --accent-purple: #eab308;
-  --accent-gradient: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  /* Ocean Accents */
+  --accent-cyan: #00b4d8; 
+  --accent-purple: #fdfd96; /* Light yellow accent from palette */
+  --accent-gradient: linear-gradient(135deg, #0077b6, #00b4d8);
   
   /* UI Elements */
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --glass-bg: rgba(144, 224, 239, 0.05);
+  --glass-border: rgba(144, 224, 239, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 119, 182, 0.3);
   
   --font-mono: 'Fira Code', monospace;
   --font-sans: 'Inter', sans-serif;
@@ -107,7 +108,7 @@ body {
   width: 100%;
   backdrop-filter: blur(10px);
   z-index: 100;
-  background: var(--nav-bg, rgba(6, 9, 19, 0.7));
+  background: var(--nav-bg);
   border-bottom: 1px solid var(--glass-border);
 }
 
@@ -215,7 +216,7 @@ body {
 }
 
 .btn-solid:hover {
-  box-shadow: 0 8px 25px rgba(0, 242, 254, 0.6);
+  box-shadow: 0 8px 25px rgba(0, 180, 216, 0.6);
   transform: translateY(-3px);
   filter: brightness(1.2);
 }
@@ -344,7 +345,7 @@ section {
 }
 
 .code-window {
-  background: rgba(10, 15, 30, 0.8);
+  background: rgba(3, 19, 33, 0.8);
   border-radius: 8px;
   border: 1px solid var(--glass-border);
   box-shadow: 0 20px 40px rgba(0,0,0,0.5);
@@ -360,7 +361,7 @@ section {
 }
 
 .window-header {
-  background: #1e2233;
+  background: #001221;
   padding: 0.75rem 1rem;
   display: flex;
   gap: 0.5rem;
@@ -448,7 +449,7 @@ section {
   height: 350px;
   margin: 1rem auto 3rem;
   border-radius: 20px;
-  background: rgba(6, 9, 19, 0.4);
+  background: rgba(3, 19, 33, 0.4);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(0, 242, 254, 0.05);
   overflow: hidden;
@@ -675,10 +676,12 @@ section {
 }
 
 .contact-desc {
-  max-width: 500px;
+  max-width: 750px;
   color: var(--text-secondary);
   margin: 0 auto 3rem;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  text-wrap: balance;
 }
 
 .social-links-container {
@@ -739,7 +742,9 @@ footer {
 .slide-up-trigger {
   opacity: 0;
   transform: translate3d(0, 40px, 0);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-property: opacity, transform;
+  transition-duration: 0.9s, 0.9s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1), cubic-bezier(0.16, 1, 0.3, 1);
   backface-visibility: hidden;
   will-change: opacity, transform;
 }
@@ -752,7 +757,9 @@ footer {
 .scale-trigger {
   opacity: 0;
   transform: scale(0.95) translate3d(0, 30px, 0);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-property: opacity, transform;
+  transition-duration: 0.8s, 0.8s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1), cubic-bezier(0.16, 1, 0.3, 1);
   backface-visibility: hidden;
   will-change: opacity, transform;
 }
