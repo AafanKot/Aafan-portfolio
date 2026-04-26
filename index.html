@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,17 +8,16 @@
     <!-- Modern Tech Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="./src/style.css" />
 </head>
+
 <body>
-    <!-- Background Animated Shapes -->
-    <div class="blob-cont">
-        <div class="blob blob1"></div>
-        <div class="blob blob2"></div>
-        <div class="blob blob3"></div>
-    </div>
+    <!-- Background Texture -->
+    <div class="noise-overlay"></div>
 
     <nav class="navbar animate-fade-down" style="animation-delay: 0.1s;">
         <div class="logo">Aafan<span class="code-bracket">.dev</span></div>
@@ -31,7 +31,19 @@
             <li><a href="#contact" class="nav-btn primary-btn">Contact</a></li>
             <li>
                 <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
-                    <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="feather feather-sun">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
                 </button>
             </li>
         </ul>
@@ -43,13 +55,16 @@
             <div class="hero-content">
                 <p class="greeting animate-slide-up" style="animation-delay: 0.2s;">Hi, my name is</p>
                 <h1 class="hero-title animate-slide-up" style="animation-delay: 0.3s;">Aafan Kotawdekar</h1>
-                <h2 class="hero-subtitle animate-slide-up" style="animation-delay: 0.4s;">Passionate about building useful and impactful software.</h2>
+                <h2 class="hero-subtitle animate-slide-up" style="animation-delay: 0.4s;">Passionate about building
+                    useful and impactful software.</h2>
                 <p class="hero-desc animate-slide-up" style="animation-delay: 0.5s;">
-                    I'm a software developer with a strong interest in building practical and user-focused applications. I enjoy working with technologies like Java, Android, MySql, Firebase, HTML/CSS and ReactJs etc. to create solutions that make a real impact.
+                    I'm a software developer with a strong interest in building practical and user-focused applications.
+                    I enjoy working with technologies like Java, Android, MySql, Firebase, HTML/CSS and ReactJs etc. to
+                    create solutions that make a real impact.
                 </p>
                 <div class="hero-cta animate-slide-up" style="animation-delay: 0.6s;">
                     <a href="#projects" class="btn btn-outline">View My Work</a>
-                    <a href="/resume.pdf" target="_blank" class="btn btn-outline">Resume</a>
+                    <a href="./public/resume.pdf" target="_blank" class="btn btn-outline">Resume</a>
                     <a href="#contact" class="btn btn-solid">Hire Me</a>
                 </div>
             </div>
@@ -70,14 +85,21 @@
             <h2 class="section-heading"><span class="num">01.</span> About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Hello! My name is <strong>Aafan Kotawdekar</strong>, and I enjoy building real-world applications that solve practical problems. I have experience working across mobile and web development, with a strong focus on creating user-friendly and efficient solutions.</p>
-                    <p>I recently completed my MCA and worked as an Android Developer Intern, where I contributed to building a home service booking application, handling both UI design and functionality using Java and Firebase.</p>
-                    <p>Along with Android development, I have hands-on experience with technologies like C#, JavaScript, React, .NET, and databases such as MySQL, MongoDB, and Firebase. I enjoy exploring different technologies and continuously improving my skills by working on real projects.</p>
-                    <p>I am passionate about developing applications that are not just functional, but also intuitive and impactful.</p>
+                    <p>Hello! My name is <strong>Aafan Kotawdekar</strong>, and I enjoy building real-world applications
+                        that solve practical problems. I have experience working across mobile and web development, with
+                        a strong focus on creating user-friendly and efficient solutions.</p>
+                    <p>I recently completed my MCA and worked as an Android Developer Intern, where I contributed to
+                        building a home service booking application, handling both UI design and functionality using
+                        Java and Firebase.</p>
+                    <p>Along with Android development, I have hands-on experience with technologies like C#, JavaScript,
+                        React, .NET, and databases such as MySQL, MongoDB, and Firebase. I enjoy exploring different
+                        technologies and continuously improving my skills by working on real projects.</p>
+                    <p>I am passionate about developing applications that are not just functional, but also intuitive
+                        and impactful.</p>
                 </div>
                 <div class="about-img_container glass-panel">
                     <!-- Placeholder image matching modern aesthetic -->
-                    <img src="/aafan_workspace.png" alt="Developer workspace" class="about-img" />
+                    <img src="./public/aafan_workspace.png" alt="Developer workspace" class="about-img" />
                     <div class="img-overlay"></div>
                 </div>
             </div>
@@ -90,15 +112,22 @@
                 <div class="timeline-item glass-panel">
                     <h3 class="timeline-title">Android Developer and UIUX Developer Intern</h3>
                     <div class="timeline-subtitle">Shreecore Financial Technology Pvt. Ltd. | Jan 2025 – Jun 2025</div>
-                    <ul style="margin-top: 1.5rem; padding-left: 1.5rem; color: var(--text-secondary); line-height: 1.6;">
-                        <li style="margin-bottom: 0.5rem;">Worked on the development of "Convenio", an Android-based home service booking application.</li>
-                        <li style="margin-bottom: 0.5rem;">Designed and implemented user interfaces using XML and developed app functionality using Java.</li>
-                        <li style="margin-bottom: 0.5rem;">Integrated Firebase for real-time data handling and backend support.</li>
-                        <li style="margin-bottom: 0.5rem;">Collaborated with the team in Agile environment for feature planning and development.</li>
-                        <li style="margin-bottom: 0.5rem;">Gained hands-on experience in the complete mobile app development lifecycle.</li>
+                    <ul
+                        style="margin-top: 1.5rem; padding-left: 1.5rem; color: var(--text-secondary); line-height: 1.6;">
+                        <li style="margin-bottom: 0.5rem;">Worked on the development of "Convenio", an Android-based
+                            home service booking application.</li>
+                        <li style="margin-bottom: 0.5rem;">Designed and implemented user interfaces using XML and
+                            developed app functionality using Java.</li>
+                        <li style="margin-bottom: 0.5rem;">Integrated Firebase for real-time data handling and backend
+                            support.</li>
+                        <li style="margin-bottom: 0.5rem;">Collaborated with the team in Agile environment for feature
+                            planning and development.</li>
+                        <li style="margin-bottom: 0.5rem;">Gained hands-on experience in the complete mobile app
+                            development lifecycle.</li>
                     </ul>
                     <div style="margin-top: 1.5rem;">
-                        <a href="/internship_certificate.pdf" target="_blank" class="btn btn-outline">View Internship Certificate</a>
+                        <a href="./public/internship_certificate.pdf" target="_blank" class="btn btn-outline">View
+                            Internship Certificate</a>
                     </div>
                 </div>
             </div>
@@ -110,15 +139,22 @@
             <div class="timeline">
                 <div class="timeline-item glass-panel scale-trigger" style="transition-delay: 0.1s;">
                     <h3 class="timeline-title">🎓 Master of Computer Applications (MCA)</h3>
-                    <div class="timeline-subtitle">Finolex Academy of Management and Technology | Aug 2023 – Jun 2025</div>
-                    <p class="timeline-desc" style="color: var(--accent-cyan); font-weight: 700; margin-bottom: 0.5rem; letter-spacing: 0.5px;">📊 CGPA: 8.92</p>
-                    <p class="timeline-desc">Focused on software development, web technologies, and real-world application building.</p>
+                    <div class="timeline-subtitle">Finolex Academy of Management and Technology | Aug 2023 – Jun 2025
+                    </div>
+                    <p class="timeline-desc"
+                        style="color: var(--accent-cyan); font-weight: 700; margin-bottom: 0.5rem; letter-spacing: 0.5px;">
+                        📊 CGPA: 8.92</p>
+                    <p class="timeline-desc">Focused on software development, web technologies, and real-world
+                        application building.</p>
                 </div>
                 <div class="timeline-item glass-panel scale-trigger" style="transition-delay: 0.3s;">
                     <h3 class="timeline-title">🎓 Bachelor of Science in Information Technology (BScIT)</h3>
                     <div class="timeline-subtitle">R. P. Gogate College, Ratnagiri | Jun 2020 – Apr 2023</div>
-                    <p class="timeline-desc" style="color: var(--accent-cyan); font-weight: 700; margin-bottom: 0.5rem; letter-spacing: 0.5px;">📊 CGPA: 8.70</p>
-                    <p class="timeline-desc">Built strong foundation in programming, databases, and computer science fundamentals.</p>
+                    <p class="timeline-desc"
+                        style="color: var(--accent-cyan); font-weight: 700; margin-bottom: 0.5rem; letter-spacing: 0.5px;">
+                        📊 CGPA: 8.70</p>
+                    <p class="timeline-desc">Built strong foundation in programming, databases, and computer science
+                        fundamentals.</p>
                 </div>
             </div>
         </section>
@@ -127,21 +163,31 @@
         <section id="skills" class="skills-section slide-up-trigger">
             <h2 class="section-heading"><span class="num">04.</span> Technical Skills</h2>
             <div class="bubble-canvas slide-up-trigger" id="bubbleCanvas">
-                <div class="bubble-node highlight-java" title="Java"><i class="devicon-java-plain colored list-dev-icon"></i></div>
-                <div class="bubble-node highlight-android" title="Android"><i class="devicon-android-plain colored list-dev-icon"></i></div>
+                <div class="bubble-node highlight-java" title="Java"><i
+                        class="devicon-java-plain colored list-dev-icon"></i></div>
+                <div class="bubble-node highlight-android" title="Android"><i
+                        class="devicon-android-plain colored list-dev-icon"></i></div>
                 <div class="bubble-node" title="C#"><i class="devicon-csharp-plain colored list-dev-icon"></i></div>
-                <div class="bubble-node" title="JavaScript"><i class="devicon-javascript-plain colored list-dev-icon"></i></div>
+                <div class="bubble-node" title="JavaScript"><i
+                        class="devicon-javascript-plain colored list-dev-icon"></i></div>
                 <div class="bubble-node" title="HTML5"><i class="devicon-html5-plain colored list-dev-icon"></i></div>
                 <div class="bubble-node" title="CSS3"><i class="devicon-css3-plain colored list-dev-icon"></i></div>
-                <div class="bubble-node" title="React"><i class="devicon-react-original colored list-dev-icon"></i></div>
-                <div class="bubble-node" title=".NET"><i class="devicon-dotnetcore-plain colored list-dev-icon"></i></div>
-                <div class="bubble-node" title="Laravel"><i class="devicon-laravel-plain colored list-dev-icon"></i></div>
+                <div class="bubble-node" title="React"><i class="devicon-react-original colored list-dev-icon"></i>
+                </div>
+                <div class="bubble-node" title=".NET"><i class="devicon-dotnetcore-plain colored list-dev-icon"></i>
+                </div>
+                <div class="bubble-node" title="Laravel"><i class="devicon-laravel-plain colored list-dev-icon"></i>
+                </div>
                 <div class="bubble-node" title="MySQL"><i class="devicon-mysql-plain colored list-dev-icon"></i></div>
-                <div class="bubble-node" title="Firebase"><i class="devicon-firebase-plain colored list-dev-icon"></i></div>
-                <div class="bubble-node" title="MongoDB"><i class="devicon-mongodb-plain colored list-dev-icon"></i></div>
-                <div class="bubble-node" title="Git & GitHub"><i class="devicon-git-plain colored list-dev-icon"></i></div>
+                <div class="bubble-node" title="Firebase"><i class="devicon-firebase-plain colored list-dev-icon"></i>
+                </div>
+                <div class="bubble-node" title="MongoDB"><i class="devicon-mongodb-plain colored list-dev-icon"></i>
+                </div>
+                <div class="bubble-node" title="Git & GitHub"><i class="devicon-git-plain colored list-dev-icon"></i>
+                </div>
                 <div class="bubble-node" title="Figma"><i class="devicon-figma-plain colored list-dev-icon"></i></div>
-                <div class="bubble-node" title="VS Code"><i class="devicon-vscode-plain colored list-dev-icon"></i></div>
+                <div class="bubble-node" title="VS Code"><i class="devicon-vscode-plain colored list-dev-icon"></i>
+                </div>
             </div>
         </section>
 
@@ -155,7 +201,9 @@
                         <p class="project-overline">Featured Project</p>
                         <h3 class="project-title">Convenio – Home Service Booking App</h3>
                         <div class="project-description">
-                            <p>An Android-based application that allows users to book home services with dynamic time slots and real-time updates. Includes cart functionality, booking management, and payment integration using Firebase.</p>
+                            <p>An Android-based application that allows users to book home services with dynamic time
+                                slots and real-time updates. Includes cart functionality, booking management, and
+                                payment integration using Firebase.</p>
                         </div>
                         <ul class="project-tech-list" style="color: var(--accent-cyan)">
                             <li>Java</li>
@@ -165,7 +213,14 @@
                         </ul>
                         <div class="project-links">
                             <a href="https://github.com/AafanKot/Convenio_4thSemProject" aria-label="GitHub Link">
-                                 <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><title>GitHub</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-github">
+                                    <title>GitHub</title>
+                                    <path
+                                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                    </path>
+                                </svg>
                             </a>
                         </div>
                     </div>
@@ -177,17 +232,27 @@
                         <p class="project-overline">Full Stack Application</p>
                         <h3 class="project-title">Task Manager System</h3>
                         <div class="project-description">
-                            <p>A full-stack task management application with user authentication, project management, and task tracking features.
-                                Implemented secure API authentication using Laravel Sanctum and built RESTful APIs for managing projects and tasks. Includes a dashboard to monitor task progress (todo, in progress, completed).</p>
+                            <p>A full-stack task management application with user authentication, project management,
+                                and task tracking features.
+                                Implemented secure API authentication using Laravel Sanctum and built RESTful APIs for
+                                managing projects and tasks. Includes a dashboard to monitor task progress (todo, in
+                                progress, completed).</p>
                         </div>
-                        <ul class="project-tech-list" style="color: var(--accent-cyan)" >
+                        <ul class="project-tech-list" style="color: var(--accent-cyan)">
                             <li>PHP</li>
                             <li>Laravel</li>
                             <li>MySQL</li>
                         </ul>
                         <div class="project-links">
                             <a href="https://github.com/AafanKot/task-manager-Laravel" aria-label="GitHub Link">
-                                <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><title>GitHub</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-github">
+                                    <title>GitHub</title>
+                                    <path
+                                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                    </path>
+                                </svg>
                             </a>
                         </div>
                     </div>
@@ -199,7 +264,8 @@
                         <p class="project-overline">Web Application</p>
                         <h3 class="project-title">Sportswear Wardrobe</h3>
                         <div class="project-description">
-                            <p>A responsive e-commerce website for sportswear with categorized product listings, shopping cart, and order management system.</p>
+                            <p>A responsive e-commerce website for sportswear with categorized product listings,
+                                shopping cart, and order management system.</p>
                         </div>
                         <ul class="project-tech-list" style="color: var(--accent-cyan)">
                             <li>PHP</li>
@@ -219,7 +285,7 @@
                     </div>
                 </div>
 
-                
+
 
                 <!-- Project 4 -->
                 <div class="project-card glass-panel scale-trigger" style="transition-delay: 0.4s;">
@@ -227,7 +293,8 @@
                         <p class="project-overline">Desktop Application</p>
                         <h3 class="project-title">Blood Bank Management System</h3>
                         <div class="project-description">
-                            <p>A desktop application designed to manage blood donors, inventory, and blood requests efficiently using ASP.NET and SQL Server.</p>
+                            <p>A desktop application designed to manage blood donors, inventory, and blood requests
+                                efficiently using ASP.NET and SQL Server.</p>
                         </div>
                         <ul class="project-tech-list" style="color: var(--accent-cyan)">
                             <li>C#</li>
@@ -247,32 +314,58 @@
         <!-- Contact Section -->
         <section id="contact" class="contact-section slide-up-trigger">
             <h2 class="section-heading"><span class="num">06.</span> What's Next?</h2>
-            
-            <img src="/profile.jpg" alt="Aafan Kotawdekar" class="contact-profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Aafan+Kotawdekar&background=00f2fe&color=060913&size=200'">
-            
+
+            <img src="./public/profile.jpg" alt="Aafan Kotawdekar" class="contact-profile-img"
+                onerror="this.src='https://ui-avatars.com/api/?name=Aafan+Kotawdekar&background=00f2fe&color=060913&size=200'">
+
             <h2 class="contact-title">Get In Touch</h2>
             <p class="contact-desc">
                 I'm currently open to new opportunities and looking to start my career as a software developer.<br>
                 If you have any opportunity, project, or just want to connect, feel free to reach out.<br>
                 I'll be happy to connect and discuss!
             </p>
-            <a href="mailto:aafankotawdekar30@gmail.com" class="btn btn-outline" style="margin-bottom: 3rem;">Let's Connect</a>
+            <a href="mailto:aafankotawdekar30@gmail.com" class="btn btn-outline" style="margin-bottom: 3rem;">Let's
+                Connect</a>
 
             <div class="social-links-container glass-panel">
                 <a href="https://github.com/AafanKot" class="social-icon" aria-label="GitHub">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                        </path>
+                    </svg>
                 </a>
                 <a href="https://www.linkedin.com/in/aafankotawdekar" class="social-icon" aria-label="LinkedIn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
                 </a>
                 <a href="https://www.instagram.com/aafan__0/" class="social-icon" aria-label="Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
                 </a>
                 <a href="mailto:aafankotawdekar30@gmail.com" class="social-icon" aria-label="Email">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
                 </a>
                 <a href="tel:7888086174" class="social-icon" aria-label="Phone">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                        </path>
+                    </svg>
                 </a>
             </div>
         </section>
@@ -282,6 +375,7 @@
         <p>Built by Aafan Kotawdekar, styled with dedication.</p>
     </footer>
 
-    <script type="module" src="/src/main.js"></script>
+    <script src="./src/main.js"></script>
 </body>
+
 </html>

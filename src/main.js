@@ -75,23 +75,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load initial from localstorage
     const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
+    if (currentTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
         if (themeIcon) themeIcon.innerHTML = moonIcon;
+    } else {
+        // Default is light (sun icon)
+        if (themeIcon) themeIcon.innerHTML = sunIcon;
     }
 
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', () => {
             let theme = document.documentElement.getAttribute('data-theme');
             
-            if (theme === 'light') {
+            if (theme === 'dark') {
+                // Switch to light
                 document.documentElement.removeAttribute('data-theme');
                 themeIcon.innerHTML = sunIcon;
-                localStorage.setItem('theme', 'dark');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                themeIcon.innerHTML = moonIcon;
                 localStorage.setItem('theme', 'light');
+            } else {
+                // Switch to dark
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeIcon.innerHTML = moonIcon;
+                localStorage.setItem('theme', 'dark');
             }
         });
     }
