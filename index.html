@@ -4,23 +4,28 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Software Developer | Portfolio</title>
-    <!-- Modern Tech Fonts -->
+    <title>Aafan Kotawdekar | Software & Android Developer</title>
+    <meta name="description"
+        content="Portfolio of Aafan Kotawdekar - Software & Android Developer specializing in Java, Android, React, Laravel, and Modern Web Applications." />
+
+    <!-- Modern Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link rel="stylesheet" href="./src/style.css" />
 </head>
 
 <body>
-    <!-- Background Texture -->
-    <div class="noise-overlay"></div>
+    <!-- Top Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
 
-    <nav class="navbar animate-fade-down" style="animation-delay: 0.1s;">
-        <div class="logo">Aafan<span class="code-bracket">.dev</span></div>
+    <!-- Navigation Header -->
+    <nav class="navbar animate-fade-down">
+        <a href="#home" class="logo">Aafan<span class="logo-dot">.dev</span></a>
+
         <ul class="nav-links">
             <li><a href="#home" class="nav-btn">Home</a></li>
             <li><a href="#about" class="nav-btn">About</a></li>
@@ -31,9 +36,9 @@
             <li><a href="#contact" class="nav-btn primary-btn">Contact</a></li>
             <li>
                 <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
-                    <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                    <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-sun">
+                        stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
                         <line x1="12" y1="1" x2="12" y2="3"></line>
                         <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -47,87 +52,152 @@
                 </button>
             </li>
         </ul>
+
+        <button id="hamburger-toggle" class="hamburger" aria-label="Toggle Mobile Navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
     </nav>
 
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-drawer" class="mobile-drawer">
+        <a href="#home" class="mobile-nav-btn">Home</a>
+        <a href="#about" class="mobile-nav-btn">About</a>
+        <a href="#experience" class="mobile-nav-btn">Experience</a>
+        <a href="#education" class="mobile-nav-btn">Education</a>
+        <a href="#skills" class="mobile-nav-btn">Skills</a>
+        <a href="#projects" class="mobile-nav-btn">Projects</a>
+        <a href="#contact" class="mobile-nav-btn">Contact</a>
+    </div>
+
     <main>
-        <!-- Home / Hero Section -->
+        <!-- Hero Section -->
         <section id="home" class="hero-section">
             <div class="hero-content">
-                <p class="greeting animate-slide-up" style="animation-delay: 0.2s;">Hi, my name is</p>
+                <div class="status-pill animate-slide-up" style="animation-delay: 0.15s;">
+                    <span class="online-dot"></span>
+                    <span>Open to Software & Android Developer Roles</span>
+                </div>
                 <h1 class="hero-title animate-slide-up" style="animation-delay: 0.3s;">Aafan Kotawdekar</h1>
-                <h2 class="hero-subtitle animate-slide-up" style="animation-delay: 0.4s;">Passionate about building
-                    useful and impactful software.</h2>
+                <h2 class="hero-subtitle animate-slide-up" style="animation-delay: 0.4s;">Building impactful mobile &
+                    full-stack applications.</h2>
                 <p class="hero-desc animate-slide-up" style="animation-delay: 0.5s;">
-                    I'm a software developer with a strong interest in building practical and user-focused applications.
-                    I enjoy working with technologies like Java, Android, MySql, Firebase, HTML/CSS and ReactJs etc. to
-                    create solutions that make a real impact.
+                    Software developer with strong expertise in Java, Android, React, Laravel, and MySQL. Passionate
+                    about creating seamless user experiences and functional, robust code.
                 </p>
                 <div class="hero-cta animate-slide-up" style="animation-delay: 0.6s;">
-                    <a href="#projects" class="btn btn-outline">View My Work</a>
-                    <a href="./resume.pdf" target="_blank" class="btn btn-outline">Resume</a>
-                    <a href="#contact" class="btn btn-solid">Hire Me</a>
+                    <a href="#projects" class="btn btn-solid">View My Work</a>
+                    <a href="./Aafan_resume.pdf" target="_blank" class="btn btn-outline">Resume</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
                 </div>
             </div>
-            <div class="hero-visual animate-fade-in" style="animation-delay: 0.8s;">
-                <div class="code-window">
-                    <div class="window-header">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
+
+            <!-- Preserved & Enhanced 3D Hero Code Terminal Card -->
+            <div class="hero-visual animate-fade-in" id="hero3dContainer" style="animation-delay: 0.8s;">
+                <div class="hero-3d-wrapper" id="hero3dCard">
+                    <!-- Main Code Terminal Card -->
+                    <div class="code-window">
+                        <div class="window-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="window-title">developer.js</span>
+                        </div>
+                        <pre><code id="typing-code"></code></pre>
                     </div>
-                    <pre><code id="typing-code"></code></pre>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="about-section slide-up-trigger">
+        <section id="about" class="about-section">
             <h2 class="section-heading"><span class="num">01.</span> About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Hello! My name is <strong>Aafan Kotawdekar</strong>, and I enjoy building real-world applications
-                        that solve practical problems. I have experience working across mobile and web development, with
-                        a strong focus on creating user-friendly and efficient solutions.</p>
-                    <p>I recently completed my MCA and worked as an Android Developer Intern, where I contributed to
-                        building a home service booking application, handling both UI design and functionality using
-                        Java and Firebase.</p>
-                    <p>Along with Android development, I have hands-on experience with technologies like C#, JavaScript,
-                        React, .NET, and databases such as MySQL, MongoDB, and Firebase. I enjoy exploring different
-                        technologies and continuously improving my skills by working on real projects.</p>
-                    <p>I am passionate about developing applications that are not just functional, but also intuitive
-                        and impactful.</p>
+                    <p class="about-intro">
+                        Hi, I'm <strong>Aafan Kotawdekar</strong> — a passionate <strong>Software & Android
+                            Developer</strong> dedicated to turning complex ideas into clean, high-performance
+                        applications.
+                    </p>
+                    <p>
+                        With a solid academic foundation from my <strong>Master of Computer Applications (MCA)</strong>
+                        degree (CGPA 8.92) and real-world experience as an <strong>Android & UI/UX Developer
+                            Intern</strong> at Shreecore Financial Technology, I specialize in building user-friendly
+                        mobile and web platforms.
+                    </p>
+                    <p>
+                        My expertise spans <strong>Java, Android SDK, JavaScript, React, PHP/Laravel, C#</strong>, and
+                        database systems like <strong>MySQL, Firebase, and MongoDB</strong>.
+                    </p>
+
+                    <!-- Quick Highlight Pills -->
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">📱</span>
+                            <div>
+                                <strong>Mobile & Web Development</strong>
+                                <small>Java, Android SDK, React & Laravel</small>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🎓</span>
+                            <div>
+                                <strong>MCA Graduate (CGPA 8.92)</strong>
+                                <small>Finolex Academy of Management & Tech</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="about-img_container glass-panel">
-                    <!-- Placeholder image matching modern aesthetic -->
-                    <img src="./aafan_workspace.png" alt="Developer workspace" class="about-img" />
-                    <div class="img-overlay"></div>
+
+                <!-- 3D Photo Perspective Container -->
+                <div class="about-3d-container" id="about3dContainer">
+                    <div class="about-3d-card" id="about3dCard">
+                        <div class="about-img-frame">
+                            <img src="./Convocation_photo.png" alt="Aafan Kotawdekar" class="about-img"
+                                onerror="this.src='./profile.jpg'" />
+                            <div class="about-glare"></div>
+                        </div>
+                        <div class="about-badge">
+                            <span>Aafan Kotawdekar</span>
+                            <small>Software Developer</small>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Experience Section -->
         <section id="experience" class="experience-section">
-            <h2 class="section-heading slide-up-trigger"><span class="num">02.</span> Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item glass-panel">
-                    <h3 class="timeline-title">Android Developer and UIUX Developer Intern</h3>
-                    <div class="timeline-subtitle">Shreecore Financial Technology Pvt. Ltd. | Jan 2025 – Jun 2025</div>
-                    <ul
-                        style="margin-top: 1.5rem; padding-left: 1.5rem; color: var(--text-secondary); line-height: 1.6;">
-                        <li style="margin-bottom: 0.5rem;">Worked on the development of "Convenio", an Android-based
-                            home service booking application.</li>
-                        <li style="margin-bottom: 0.5rem;">Designed and implemented user interfaces using XML and
-                            developed app functionality using Java.</li>
-                        <li style="margin-bottom: 0.5rem;">Integrated Firebase for real-time data handling and backend
-                            support.</li>
-                        <li style="margin-bottom: 0.5rem;">Collaborated with the team in Agile environment for feature
-                            planning and development.</li>
-                        <li style="margin-bottom: 0.5rem;">Gained hands-on experience in the complete mobile app
-                            development lifecycle.</li>
+            <h2 class="section-heading"><span class="num">02.</span> Experience</h2>
+            <div class="timeline-3d-container">
+                <div class="timeline-card-3d card-3d-left">
+                    <div class="timeline-card-header">
+                        <div class="card-icon-badge">
+                            <!-- Flaticon Work Briefcase SVG -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="flaticon-icon">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="timeline-title">Android & UI/UX Developer Intern</h3>
+                            <div class="timeline-subtitle">Shreecore Financial Technology Pvt. Ltd. | Jan 2025 – Jun
+                                2025</div>
+                        </div>
+                    </div>
+                    <ul class="timeline-list">
+                        <li>Developed key features for "Convenio", an Android-based home service booking app.</li>
+                        <li>Designed clean user interfaces using XML and implemented backend logic with Java and
+                            Firebase.</li>
+                        <li>Built real-time data handling, cart management, and booking scheduling functionality.</li>
+                        <li>Participated in Agile sprints, feature planning, code reviews, and application testing.</li>
                     </ul>
-                    <div style="margin-top: 1.5rem;">
-                        <a href="./internship_certificate.pdf" target="_blank" class="btn btn-outline">View
-                            Internship Certificate</a>
+                    <div class="card-footer-actions">
+                        <a href="./internship_certificate.pdf" target="_blank" class="btn btn-outline"
+                            style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">View Internship Certificate</a>
                     </div>
                 </div>
             </div>
@@ -135,88 +205,121 @@
 
         <!-- Education Section -->
         <section id="education" class="education-section">
-            <h2 class="section-heading slide-up-trigger"><span class="num">03.</span> Education</h2>
-            <div class="timeline">
-                <div class="timeline-item glass-panel scale-trigger" style="transition-delay: 0.1s;">
-                    <h3 class="timeline-title">🎓 Master of Computer Applications (MCA)</h3>
-                    <div class="timeline-subtitle">Finolex Academy of Management and Technology | Aug 2023 – Jun 2025
+            <h2 class="section-heading"><span class="num">03.</span> Education</h2>
+            <div class="education-3d-grid">
+                <!-- MCA 3D Card -->
+                <div class="education-card-3d card-3d-right">
+                    <div class="timeline-card-header">
+                        <div class="card-icon-badge">
+                            <!-- Flaticon Graduation Cap SVG -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="flaticon-icon">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="timeline-title">Master of Computer Applications (MCA)</h3>
+                            <div class="timeline-subtitle">Finolex Academy of Management and Technology | 2023 – 2025
+                            </div>
+                        </div>
                     </div>
-                    <p class="timeline-desc"
-                        style="color: var(--accent-cyan); font-weight: 700; margin-bottom: 0.5rem; letter-spacing: 0.5px;">
-                        📊 CGPA: 8.92</p>
-                    <p class="timeline-desc">Focused on software development, web technologies, and real-world
-                        application building.</p>
+                    <div class="cgpa-badge">📊 CGPA: 8.92</div>
+                    <p class="education-desc">Specialized in advanced software engineering, database management systems,
+                        object-oriented design, and full-stack web applications.</p>
                 </div>
-                <div class="timeline-item glass-panel scale-trigger" style="transition-delay: 0.3s;">
-                    <h3 class="timeline-title">🎓 Bachelor of Science in Information Technology (BScIT)</h3>
-                    <div class="timeline-subtitle">R. P. Gogate College, Ratnagiri | Jun 2020 – Apr 2023</div>
-                    <p class="timeline-desc"
-                        style="color: var(--accent-cyan); font-weight: 700; margin-bottom: 0.5rem; letter-spacing: 0.5px;">
-                        📊 CGPA: 8.70</p>
-                    <p class="timeline-desc">Built strong foundation in programming, databases, and computer science
-                        fundamentals.</p>
+
+                <!-- BScIT 3D Card -->
+                <div class="education-card-3d card-3d-left">
+                    <div class="timeline-card-header">
+                        <div class="card-icon-badge">
+                            <!-- Flaticon Diploma Academic SVG -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="flaticon-icon">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="timeline-title">Bachelor of Science in Information Technology (BScIT)</h3>
+                            <div class="timeline-subtitle">R. P. Gogate College, Ratnagiri | 2020 – 2023</div>
+                        </div>
+                    </div>
+                    <div class="cgpa-badge">📊 CGPA: 8.70</div>
+                    <p class="education-desc">Built a strong foundation in core computer science, software programming,
+                        web architecture, and database administration.</p>
                 </div>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="skills-section slide-up-trigger">
+        <section id="skills" class="skills-section">
             <h2 class="section-heading"><span class="num">04.</span> Technical Skills</h2>
-            <div class="bubble-canvas slide-up-trigger" id="bubbleCanvas">
-                <div class="bubble-node highlight-java" title="Java"><i
-                        class="devicon-java-plain colored list-dev-icon"></i></div>
-                <div class="bubble-node highlight-android" title="Android"><i
-                        class="devicon-android-plain colored list-dev-icon"></i></div>
-                <div class="bubble-node" title="C#"><i class="devicon-csharp-plain colored list-dev-icon"></i></div>
-                <div class="bubble-node" title="JavaScript"><i
-                        class="devicon-javascript-plain colored list-dev-icon"></i></div>
-                <div class="bubble-node" title="HTML5"><i class="devicon-html5-plain colored list-dev-icon"></i></div>
-                <div class="bubble-node" title="CSS3"><i class="devicon-css3-plain colored list-dev-icon"></i></div>
-                <div class="bubble-node" title="React"><i class="devicon-react-original colored list-dev-icon"></i>
+            <div class="skills-container">
+                <div class="skill-tabs">
+                    <button class="tab-btn active" data-category="all">All Skills</button>
+                    <button class="tab-btn" data-category="mobile">Mobile & Languages</button>
+                    <button class="tab-btn" data-category="web">Web & Frontend</button>
+                    <button class="tab-btn" data-category="backend">Backend & DB</button>
+                    <button class="tab-btn" data-category="tools">Tools</button>
                 </div>
-                <div class="bubble-node" title=".NET"><i class="devicon-dotnetcore-plain colored list-dev-icon"></i>
-                </div>
-                <div class="bubble-node" title="Laravel"><i class="devicon-laravel-plain colored list-dev-icon"></i>
-                </div>
-                <div class="bubble-node" title="MySQL"><i class="devicon-mysql-plain colored list-dev-icon"></i></div>
-                <div class="bubble-node" title="Firebase"><i class="devicon-firebase-plain colored list-dev-icon"></i>
-                </div>
-                <div class="bubble-node" title="MongoDB"><i class="devicon-mongodb-plain colored list-dev-icon"></i>
-                </div>
-                <div class="bubble-node" title="Git & GitHub"><i class="devicon-git-plain colored list-dev-icon"></i>
-                </div>
-                <div class="bubble-node" title="Figma"><i class="devicon-figma-plain colored list-dev-icon"></i></div>
-                <div class="bubble-node" title="VS Code"><i class="devicon-vscode-plain colored list-dev-icon"></i>
+
+                <div class="bubble-canvas" id="bubbleCanvas">
+                    <div class="bubble-node highlight-java" data-cat="mobile" title="Java"><i
+                            class="devicon-java-plain colored"></i></div>
+                    <div class="bubble-node highlight-android" data-cat="mobile" title="Android"><i
+                            class="devicon-android-plain colored"></i></div>
+                    <div class="bubble-node" data-cat="mobile" title="C#"><i class="devicon-csharp-plain colored"></i>
+                    </div>
+                    <div class="bubble-node" data-cat="web" title="JavaScript"><i
+                            class="devicon-javascript-plain colored"></i></div>
+                    <div class="bubble-node" data-cat="web" title="React"><i class="devicon-react-original colored"></i>
+                    </div>
+                    <div class="bubble-node" data-cat="web" title="HTML5"><i class="devicon-html5-plain colored"></i>
+                    </div>
+                    <div class="bubble-node" data-cat="web" title="CSS3"><i class="devicon-css3-plain colored"></i>
+                    </div>
+                    <div class="bubble-node" data-cat="backend" title="Laravel"><i
+                            class="devicon-laravel-plain colored"></i></div>
+                    <div class="bubble-node" data-cat="backend" title=".NET"><i
+                            class="devicon-dotnetcore-plain colored"></i></div>
+                    <div class="bubble-node" data-cat="backend" title="MySQL"><i
+                            class="devicon-mysql-plain colored"></i></div>
+                    <div class="bubble-node" data-cat="backend" title="Firebase"><i
+                            class="devicon-firebase-plain colored"></i></div>
+                    <div class="bubble-node" data-cat="backend" title="MongoDB"><i
+                            class="devicon-mongodb-plain colored"></i></div>
+                    <div class="bubble-node" data-cat="tools" title="Git & GitHub"><i
+                            class="devicon-git-plain colored"></i></div>
+                    <div class="bubble-node" data-cat="tools" title="Figma"><i class="devicon-figma-plain colored"></i>
+                    </div>
+                    <div class="bubble-node" data-cat="tools" title="VS Code"><i
+                            class="devicon-vscode-plain colored"></i></div>
                 </div>
             </div>
         </section>
 
         <!-- Projects Section -->
         <section id="projects" class="projects-section">
-            <h2 class="section-heading slide-up-trigger"><span class="num">05.</span> Some Things I've Built</h2>
+            <h2 class="section-heading"><span class="num">05.</span> Featured Projects</h2>
             <div class="projects-grid">
                 <!-- Project 1 -->
-                <div class="project-card glass-panel scale-trigger" style="transition-delay: 0.1s;">
-                    <div class="project-content">
-                        <p class="project-overline">Featured Project</p>
-                        <h3 class="project-title">Convenio – Home Service Booking App</h3>
-                        <div class="project-description">
-                            <p>An Android-based application that allows users to book home services with dynamic time
-                                slots and real-time updates. Includes cart functionality, booking management, and
-                                payment integration using Firebase.</p>
-                        </div>
-                        <ul class="project-tech-list" style="color: var(--accent-cyan)">
-                            <li>Java</li>
-                            <li>Firebase</li>
-                            <li>XML</li>
-                            <li>Android</li>
-                        </ul>
+                <div class="project-card">
+                    <div class="project-img-frame">
+                        <img src="./convenio_image.png" alt="Convenio App Screenshot" class="project-img"
+                            onerror="this.style.display='none'" />
+                        <div class="project-img-overlay"></div>
+                    </div>
+                    <div class="project-header">
+                        <span class="project-badge">Android App</span>
                         <div class="project-links">
-                            <a href="https://github.com/AafanKot/Convenio_4thSemProject" aria-label="GitHub Link">
-                                <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-github">
-                                    <title>GitHub</title>
+                            <a href="https://github.com/AafanKot/Convenio_4thSemProject" target="_blank"
+                                aria-label="GitHub Repository">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
                                     <path
                                         d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
                                     </path>
@@ -224,31 +327,32 @@
                             </a>
                         </div>
                     </div>
+                    <h3 class="project-title">Convenio – Home Service App</h3>
+                    <p class="project-description">Android application for booking home services with dynamic time
+                        slots, real-time cart updates, and Firebase authentication.</p>
+                    <ul class="tech-tag-list">
+                        <li class="tech-pill">Java</li>
+                        <li class="tech-pill">Android SDK</li>
+                        <li class="tech-pill">Firebase</li>
+                        <li class="tech-pill">XML</li>
+                    </ul>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="project-card glass-panel scale-trigger" style="transition-delay: 0.2s;">
-                    <div class="project-content">
-                        <p class="project-overline">Full Stack Application</p>
-                        <h3 class="project-title">Task Manager System</h3>
-                        <div class="project-description">
-                            <p>A full-stack task management application with user authentication, project management,
-                                and task tracking features.
-                                Implemented secure API authentication using Laravel Sanctum and built RESTful APIs for
-                                managing projects and tasks. Includes a dashboard to monitor task progress (todo, in
-                                progress, completed).</p>
-                        </div>
-                        <ul class="project-tech-list" style="color: var(--accent-cyan)">
-                            <li>PHP</li>
-                            <li>Laravel</li>
-                            <li>MySQL</li>
-                        </ul>
+                <div class="project-card">
+                    <div class="project-img-frame">
+                        <img src="./todo_taskmanager_preview.png" alt="Task Manager System Screenshot" class="project-img"
+                            onerror="this.style.display='none'" />
+                        <div class="project-img-overlay"></div>
+                    </div>
+                    <div class="project-header">
+                        <span class="project-badge">Full Stack</span>
                         <div class="project-links">
-                            <a href="https://github.com/AafanKot/task-manager-Laravel" aria-label="GitHub Link">
-                                <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-github">
-                                    <title>GitHub</title>
+                            <a href="https://github.com/AafanKot/task-manager-Laravel" target="_blank"
+                                aria-label="GitHub Repository">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
                                     <path
                                         d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
                                     </path>
@@ -256,96 +360,106 @@
                             </a>
                         </div>
                     </div>
+                    <h3 class="project-title">Task Manager System</h3>
+                    <p class="project-description">Task management application built with Laravel Sanctum API
+                        authentication, task progress monitoring, and MySQL database.</p>
+                    <ul class="tech-tag-list">
+                        <li class="tech-pill">Laravel</li>
+                        <li class="tech-pill">PHP</li>
+                        <li class="tech-pill">REST API</li>
+                        <li class="tech-pill">MySQL</li>
+                    </ul>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="project-card glass-panel scale-trigger" style="transition-delay: 0.3s;">
-                    <div class="project-content">
-                        <p class="project-overline">Web Application</p>
-                        <h3 class="project-title">Sportswear Wardrobe</h3>
-                        <div class="project-description">
-                            <p>A responsive e-commerce website for sportswear with categorized product listings,
-                                shopping cart, and order management system.</p>
-                        </div>
-                        <ul class="project-tech-list" style="color: var(--accent-cyan)">
-                            <li>PHP</li>
-                            <li>JavaScript</li>
-                            <li>MySQL</li>
-                            <li>HTML</li>
-                            <li>CSS</li>
-                        </ul>
-                        <!-- <div class="project-links">
-                            <a href="#" aria-label="GitHub Link">
-                                <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><title>GitHub</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                            </a>
-                            <a href="#" aria-label="External Link">
-                                <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><title>External Link</title><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                            </a>
-                        </div> -->
+                <div class="project-card">
+                    <div class="project-img-frame">
+                        <img src="./Sw_wardrobe.png" alt="Sportswear Wardrobe Screenshot" class="project-img"
+                            onerror="this.style.display='none'" />
+                        <div class="project-img-overlay"></div>
                     </div>
+                    <div class="project-header">
+                        <span class="project-badge">Web Application</span>
+                    </div>
+                    <h3 class="project-title">Sportswear Wardrobe</h3>
+                    <p class="project-description">Responsive e-commerce platform for sportswear featuring product
+                        catalogs, cart management, and order processing.</p>
+                    <ul class="tech-tag-list">
+                        <li class="tech-pill">PHP</li>
+                        <li class="tech-pill">JavaScript</li>
+                        <li class="tech-pill">MySQL</li>
+                        <li class="tech-pill">HTML/CSS</li>
+                    </ul>
                 </div>
 
-
-
                 <!-- Project 4 -->
-                <div class="project-card glass-panel scale-trigger" style="transition-delay: 0.4s;">
-                    <div class="project-content">
-                        <p class="project-overline">Desktop Application</p>
-                        <h3 class="project-title">Blood Bank Management System</h3>
-                        <div class="project-description">
-                            <p>A desktop application designed to manage blood donors, inventory, and blood requests
-                                efficiently using ASP.NET and SQL Server.</p>
-                        </div>
-                        <ul class="project-tech-list" style="color: var(--accent-cyan)">
-                            <li>C#</li>
-                            <li>ASP.NET</li>
-                            <li>SQL Server</li>
-                        </ul>
-                        <!-- <div class="project-links">
-                            <a href="#" aria-label="GitHub Link">
-                                <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><title>GitHub</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                            </a>
-                        </div> -->
+                <div class="project-card">
+                    <div class="project-img-frame">
+                        <img src="./bloodbank_dashboard.png" alt="Blood Bank Management Screenshot" class="project-img"
+                            onerror="this.style.display='none'" />
+                        <div class="project-img-overlay"></div>
                     </div>
+                    <div class="project-header">
+                        <span class="project-badge">Desktop System</span>
+                    </div>
+                    <h3 class="project-title">Blood Bank Management</h3>
+                    <p class="project-description">Desktop application for managing blood donors, inventory records, and
+                        request tracking built with ASP.NET and SQL Server.</p>
+                    <ul class="tech-tag-list">
+                        <li class="tech-pill">C#</li>
+                        <li class="tech-pill">ASP.NET</li>
+                        <li class="tech-pill">SQL Server</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="contact-section slide-up-trigger">
-            <h2 class="section-heading"><span class="num">06.</span> What's Next?</h2>
+        <section id="contact" class="contact-section">
+            <h2 class="section-heading" style="justify-content: center;"><span class="num">06.</span> What's Next?</h2>
 
             <img src="./profile.jpg" alt="Aafan Kotawdekar" class="contact-profile-img"
-                onerror="this.src='https://ui-avatars.com/api/?name=Aafan+Kotawdekar&background=00f2fe&color=060913&size=200'">
+                onerror="this.src='https://ui-avatars.com/api/?name=Aafan+Kotawdekar&background=09090b&color=ffffff&size=200'">
 
             <h2 class="contact-title">Get In Touch</h2>
             <p class="contact-desc">
-                I'm currently open to new opportunities and looking to start my career as a software developer.<br>
-                If you have any opportunity, project, or just want to connect, feel free to reach out.<br>
-                I'll be happy to connect and discuss!
+                I am actively seeking software engineering and Android developer roles. Whether you have an open
+                position, project inquiry, or simply want to connect, my inbox is always open!
             </p>
-            <a href="mailto:aafankotawdekar30@gmail.com" class="btn btn-outline" style="margin-bottom: 3rem;">Let's
-                Connect</a>
 
-            <div class="social-links-container glass-panel">
-                <a href="https://github.com/AafanKot" class="social-icon" aria-label="GitHub">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            <div class="contact-actions">
+                <a href="mailto:aafankotawdekar30@gmail.com" class="btn btn-solid">Send Email</a>
+                <button id="copy-email-btn" class="btn btn-outline">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span>Copy Email Address</span>
+                </button>
+            </div>
+
+            <div class="social-links-container">
+                <a href="https://github.com/AafanKot" target="_blank" class="social-icon" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path
                             d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
                         </path>
                     </svg>
                 </a>
-                <a href="https://www.linkedin.com/in/aafankotawdekar" class="social-icon" aria-label="LinkedIn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                <a href="https://www.linkedin.com/in/aafankotawdekar" target="_blank" class="social-icon"
+                    aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                         <rect x="2" y="9" width="4" height="12"></rect>
                         <circle cx="4" cy="4" r="2"></circle>
                     </svg>
                 </a>
-                <a href="https://www.instagram.com/aafan__0/" class="social-icon" aria-label="Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                <a href="https://www.instagram.com/aafan__0/" target="_blank" class="social-icon"
+                    aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -353,14 +467,14 @@
                     </svg>
                 </a>
                 <a href="mailto:aafankotawdekar30@gmail.com" class="social-icon" aria-label="Email">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                         <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
                 </a>
                 <a href="tel:7888086174" class="social-icon" aria-label="Phone">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path
                             d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
@@ -371,8 +485,20 @@
         </section>
     </main>
 
+    <!-- Notification Toast -->
+    <div id="toast">Email copied to clipboard!</div>
+
+    <!-- Floating Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+    </button>
+
     <footer>
-        <p>Built by Aafan Kotawdekar, styled with dedication.</p>
+        <p>© Aafan Kotawdekar. Designed with clean minimalism.</p>
     </footer>
 
     <script type="module" src="./src/main.js"></script>
