@@ -1609,10 +1609,74 @@ section {
   .card-3d-right,
   .timeline-card-3d,
   .education-card-3d,
-  .about-3d-card {
+  .about-3d-card,
+  .hero-3d-wrapper {
     transform: none !important;
     width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
+  }
+
+  /* Hero Section Mobile Formatting & Code Window Fix */
+  .hero-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-top: 6.5rem;
+    padding-bottom: 2.5rem;
+    gap: 2rem;
+  }
+
+  .hero-content {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-title {
+    font-size: clamp(2.1rem, 7.5vw, 2.8rem);
+    word-break: break-word;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin-top: 0.75rem;
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+    margin-top: 1rem;
+  }
+
+  .hero-cta {
+    justify-content: center;
+    gap: 0.65rem;
+    margin-top: 1.75rem;
+  }
+
+  .hero-cta .btn {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  /* Code Window Flat & Responsive on Mobile */
+  .hero-visual {
+    width: 100%;
+    margin-top: 0.5rem;
+    perspective: none;
+  }
+
+  .code-window {
+    width: 100%;
+    border-radius: 14px;
+    box-sizing: border-box;
+  }
+
+  .code-window pre {
+    padding: 1rem 0.85rem;
+    font-size: 0.78rem;
+    line-height: 1.55;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-x: hidden;
   }
 
   /* Clean mobile headings without overflow lines */
