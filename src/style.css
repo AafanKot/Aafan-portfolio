@@ -1545,9 +1545,17 @@ section {
   }
 }
 
+/* ==========================================================================
+   Mobile Centering & Responsive Alignment Fixes
+   ========================================================================== */
 @media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    width: 100%;
+  }
+
   .navbar {
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.25rem;
   }
 
   .nav-links {
@@ -1559,15 +1567,83 @@ section {
   }
 
   main {
-    padding: 0 1.25rem;
+    padding: 0 1rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   section {
-    padding: 5rem 0 3rem;
+    width: 100%;
+    padding: 3rem 0 2rem;
+    box-sizing: border-box;
+  }
+
+  /* Disable 3D tilt angles on mobile so all cards sit flat & centered */
+  .card-3d-left,
+  .card-3d-right,
+  .timeline-card-3d,
+  .education-card-3d,
+  .about-3d-card {
+    transform: none !important;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Clean mobile headings without overflow lines */
+  .section-heading {
+    font-size: 1.55rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-heading::after {
+    display: none !important;
+  }
+
+  /* Skills Section Mobile Center Fix */
+  .skills-container {
+    width: 100%;
+    align-items: center;
+  }
+
+  .skill-tabs {
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1.25rem;
+  }
+
+  .tab-btn {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.82rem;
   }
 
   .bubble-canvas {
-    height: 480px;
+    width: 100%;
+    height: 440px;
+    box-sizing: border-box;
+  }
+
+  /* Contact Section Mobile Center Fix */
+  .contact-section {
+    width: 100%;
+    padding: 3rem 0 2rem;
+    box-sizing: border-box;
+  }
+
+  .social-links-container {
+    padding: 0.75rem 1.25rem;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+  }
+
+  /* Projects Carousel Mobile Center Fix */
+  .progressive-carousel-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
   }
 }
 
