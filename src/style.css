@@ -257,20 +257,19 @@ main {
 }
 
 section {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 7rem 0 4rem;
+  padding: 3.5rem 0 2.5rem;
 }
 
 .section-heading {
-  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.2rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   display: flex;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1.75rem;
   color: var(--text-primary);
 }
 
@@ -291,14 +290,48 @@ section {
   background-color: var(--border-color);
 }
 
+/* ==========================================================================
+   Smooth Scroll Reveal Animation System
+   ========================================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.reveal-left {
+  transform: translateX(-40px) translateY(0);
+}
+
+.reveal.reveal-right {
+  transform: translateX(40px) translateY(0);
+}
+
+.reveal.reveal-scale {
+  transform: scale(0.93) translateY(20px);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateX(0) translateY(0) scale(1);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
 /* Hero Section */
 .hero-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 3rem;
-  min-height: 100vh;
-  padding-top: 6rem;
+  padding-top: 7rem;
+  padding-bottom: 3.5rem;
+  min-height: auto;
 }
 
 .hero-content {
@@ -944,31 +977,271 @@ section {
   font-size: 3.2rem;
 }
 
-/* Projects Section */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 2rem;
+/* Projects Section - Shadcn Progressive Carousel (Compact Single-View Layout) */
+.projects-section {
+  position: relative;
+  padding: 2.5rem 0 2rem;
 }
 
-.project-card {
+.progressive-carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.progressive-carousel-container:hover {
+  border-color: var(--border-hover);
+}
+
+.progressive-stage {
   position: relative;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
-  box-shadow: var(--shadow-sm);
+  width: 100%;
+  min-height: 330px;
   overflow: hidden;
 }
 
-.project-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--border-hover);
-  box-shadow: var(--shadow-lg);
+.progressive-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 1.75rem;
+  padding: 1.5rem 1.75rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.98) translateY(8px);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
 }
+
+.progressive-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.slide-media-frame {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  box-shadow: var(--shadow-md);
+}
+
+.slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.progressive-slide:hover .slide-img {
+  transform: scale(1.04);
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 65%, rgba(0, 0, 0, 0.3) 100%);
+  pointer-events: none;
+}
+
+.slide-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.28rem 0.75rem;
+  border-radius: var(--radius-full);
+  background: rgba(9, 9, 11, 0.78);
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.slide-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.slide-title {
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.slide-description {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Bottom Progressive Navigation Bar (Compact) */
+.progressive-btn-group {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+}
+
+.progressive-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--border-color);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.25s ease;
+  overflow: hidden;
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.progressive-btn:last-child {
+  border-right: none;
+}
+
+.progressive-btn:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="dark"] .progressive-btn:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Animated Progress Fill & Glowing Top Line */
+.progressive-bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.08) 0%, rgba(99, 102, 241, 0.25) 100%);
+  border-top: 2.5px solid #6366f1;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
+  pointer-events: none;
+  z-index: 1;
+}
+
+[data-theme="dark"] .progressive-bar-fill {
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.12) 0%, rgba(99, 102, 241, 0.32) 100%);
+  border-top: 2.5px solid #818cf8;
+  box-shadow: 0 0 12px rgba(129, 140, 248, 0.5);
+}
+
+.progressive-btn-content {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.progressive-pill {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.76rem;
+  font-weight: 700;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  transition: var(--transition-fast);
+  margin-bottom: 0.2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.progressive-btn.active .progressive-pill {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: #ffffff;
+  border-color: #6366f1;
+  box-shadow: 0 3px 10px rgba(99, 102, 241, 0.35);
+}
+
+.progressive-desc {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.progressive-btn.active .progressive-desc {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Progressive Carousel Responsive Styling */
+@media (max-width: 900px) {
+  .progressive-slide {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 1.5rem;
+  }
+  .slide-media-frame {
+    height: 200px;
+  }
+  .progressive-stage {
+    min-height: 480px;
+  }
+}
+
+@media (max-width: 640px) {
+  .progressive-btn-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .progressive-btn {
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.7rem 0.85rem;
+  }
+  .progressive-btn:nth-child(2) {
+    border-right: none;
+  }
+  .progressive-desc {
+    display: none;
+  }
+  .progressive-stage {
+    min-height: 520px;
+  }
+}
+
+
 
 /* Project Image 3D Frame & Hover Zoom */
 .project-img-frame {
@@ -1134,6 +1407,23 @@ section {
   transform: translateY(-3px);
 }
 
+/* Footer Section & Single Divider Line */
+.footer, footer {
+  width: 100%;
+  max-width: 1040px;
+  margin: 3rem auto 0;
+  padding: 2.25rem 1rem 2.5rem;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-text {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  letter-spacing: 0.01em;
+}
+
 /* Toast Notification */
 #toast {
   position: fixed;
@@ -1185,15 +1475,6 @@ section {
 #back-to-top:hover {
   border-color: var(--border-hover);
   transform: translateY(-3px);
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 2.5rem 1rem;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  border-top: 1px solid var(--border-color);
 }
 
 /* Animations */
@@ -1289,3 +1570,271 @@ footer {
     height: 480px;
   }
 }
+
+/* ==========================================================================
+   Project Card Action Buttons & Links
+   ========================================================================== */
+.project-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.project-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: inherit;
+}
+
+.project-action-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+}
+
+.project-action-btn.live-demo-btn {
+  background: var(--accent-primary);
+  color: var(--accent-contrast);
+  border-color: var(--accent-primary);
+}
+
+.project-action-btn.live-demo-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.3);
+  color: var(--accent-contrast);
+}
+
+.project-action-btn.github-action-btn:hover {
+  background: var(--bg-card);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Glassmorphic Construction Popup Modal
+   ========================================================================== */
+.glass-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+[data-theme="light"] .glass-modal-overlay {
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.glass-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.glass-modal-container {
+  width: 100%;
+  max-width: 460px;
+}
+
+.glass-modal-card {
+  position: relative;
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem 2rem 2rem;
+  box-shadow: var(--shadow-lg);
+  transform: scale(0.94) translateY(12px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.glass-modal-overlay.active .glass-modal-card {
+  transform: scale(1) translateY(0);
+}
+
+/* Top Right Badge - Under Construction */
+.glass-modal-badge {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-full);
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  color: #f59e0b;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+}
+
+.construction-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #f59e0b;
+  box-shadow: 0 0 8px #f59e0b;
+  animation: pulse-dot 1.8s infinite;
+}
+
+/* Top Left Close Button */
+.glass-modal-close {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+  z-index: 10;
+}
+
+.glass-modal-close svg {
+  stroke: var(--text-primary);
+  transition: transform 0.2s ease;
+}
+
+.glass-modal-close:hover {
+  background: var(--bg-color);
+  border-color: var(--border-hover);
+}
+
+.glass-modal-close:hover svg {
+  transform: rotate(90deg);
+}
+
+/* Icon & Header Visual */
+.glass-modal-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.glass-modal-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f59e0b;
+  box-shadow: var(--shadow-sm);
+}
+
+.glass-modal-icon svg {
+  stroke: #f59e0b;
+}
+
+/* Modal Text & Body */
+.glass-modal-body {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.glass-modal-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.25;
+}
+
+.glass-modal-status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+}
+
+.status-offline-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #ef4444;
+  box-shadow: 0 0 6px #ef4444;
+}
+
+.glass-modal-text {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Modal Actions */
+.glass-modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+}
+
+.glass-modal-actions .btn {
+  padding: 0.7rem 1.4rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+  .glass-modal-card {
+    padding: 2rem 1.25rem 1.5rem 1.25rem;
+  }
+  .glass-modal-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .glass-modal-actions .btn {
+    width: 100%;
+  }
+}

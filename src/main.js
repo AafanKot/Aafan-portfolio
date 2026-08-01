@@ -358,4 +358,244 @@ function innovate() {
             });
         });
     }
+
+    // ==========================================================================
+    // 7. Glassmorphic Project Construction Modal Handler
+    // ==========================================================================
+    const modalOverlay = document.getElementById('construction-modal');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const modalDismissBtn = document.getElementById('modal-dismiss-btn');
+    const modalTitle = document.getElementById('modal-project-title');
+    const modalTypeText = document.getElementById('modal-project-type-text');
+    const modalGithubLink = document.getElementById('modal-github-link');
+    const liveDemoBtns = document.querySelectorAll('[data-live-status]');
+
+    const openModal = (projectName, projectType, githubUrl) => {
+        if (!modalOverlay) return;
+
+        if (modalTitle) modalTitle.textContent = projectName || 'Featured Project';
+        if (modalTypeText) modalTypeText.textContent = projectType || 'Software App';
+
+        if (modalGithubLink) {
+            if (githubUrl && githubUrl !== '#') {
+                modalGithubLink.href = githubUrl;
+                modalGithubLink.style.display = 'inline-flex';
+            } else {
+                modalGithubLink.style.display = 'none';
+            }
+        }
+
+        modalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeModal = () => {
+        if (!modalOverlay) return;
+        modalOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    // Attach click listeners to all project live demo buttons
+    liveDemoBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const liveStatus = btn.getAttribute('data-live-status');
+            
+            if (liveStatus === 'offline') {
+                e.preventDefault();
+                const projectName = btn.getAttribute('data-project-name');
+                const projectType = btn.getAttribute('data-project-type');
+                const githubUrl = btn.getAttribute('data-github-url');
+                
+                openModal(projectName, projectType, githubUrl);
+            }
+            // If liveStatus === 'live', allow default navigation to link href
+        });
+    });
+
+    // Close listeners
+    if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+    if (modalDismissBtn) modalDismissBtn.addEventListener('click', closeModal);
+
+    if (modalOverlay) {
+        // Close on backdrop overlay click
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+    }
+
+    // Close on Escape key press
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalOverlay && modalOverlay.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    // ==========================================================================
+    // 8. Shadcn Style Progressive Carousel Controller (Smooth Bar Fill & Auto Next)
+    // ==========================================================================
+    const progressiveContainer = document.getElementById('progressiveCarousel');
+    const slides = document.querySelectorAll('.progressive-slide');
+    const navBtns = document.querySelectorAll('.progressive-btn');
+
+    if (progressiveContainer && slides.length > 0 && navBtns.length > 0) {
+        let activeIndex = 0;
+        const DURATION = 4500; // 4.5 seconds per slide
+        let animationFrameId = null;
+        let startTime = null;
+        let isPaused = false;
+        let pausedElapsed = 0;
+
+        const updateActiveSlide = (index) => {
+            activeIndex = (index + slides.length) % slides.length;
+
+            slides.forEach((slide, i) => {
+                if (i === activeIndex) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+
+            navBtns.forEach((btn, i) => {
+                const fillBar = btn.querySelector('.progressive-bar-fill');
+                if (i === activeIndex) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                    if (fillBar) fillBar.style.width = '0%';
+                }
+            });
+
+            // Restart animation progress for active tab
+            startProgress();
+        };
+
+        const animateProgress = (timestamp) => {
+            if (isPaused) return;
+
+            if (!startTime) startTime = timestamp - pausedElapsed;
+            const elapsed = timestamp - startTime;
+            const progress = Math.min((elapsed / DURATION) * 100, 100);
+
+            const activeBtn = navBtns[activeIndex];
+            if (activeBtn) {
+                const fillBar = activeBtn.querySelector('.progressive-bar-fill');
+                if (fillBar) {
+                    fillBar.style.width = `${progress}%`;
+                }
+            }
+
+            if (elapsed < DURATION) {
+                animationFrameId = requestAnimationFrame(animateProgress);
+            } else {
+                // Reset active bar fill and advance to next slide
+                if (activeBtn) {
+                    const fillBar = activeBtn.querySelector('.progressive-bar-fill');
+                    if (fillBar) fillBar.style.width = '0%';
+                }
+                updateActiveSlide(activeIndex + 1);
+            }
+        };
+
+        const startProgress = () => {
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
+            startTime = null;
+            pausedElapsed = 0;
+            isPaused = false;
+            animationFrameId = requestAnimationFrame(animateProgress);
+        };
+
+        const pauseProgress = () => {
+            if (!isPaused && startTime) {
+                isPaused = true;
+                pausedElapsed = performance.now() - startTime;
+                if (animationFrameId) cancelAnimationFrame(animationFrameId);
+            }
+        };
+
+        const resumeProgress = () => {
+            if (isPaused) {
+                isPaused = false;
+                startTime = performance.now() - pausedElapsed;
+                animationFrameId = requestAnimationFrame(animateProgress);
+            }
+        };
+
+        // Navigation tab click handler
+        navBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const idx = parseInt(btn.getAttribute('data-index'), 10);
+                if (!isNaN(idx)) {
+                    // Reset all fills
+                    navBtns.forEach(b => {
+                        const fill = b.querySelector('.progressive-bar-fill');
+                        if (fill) fill.style.width = '0%';
+                    });
+                    updateActiveSlide(idx);
+                }
+            });
+        });
+
+        // Hover pause listeners
+        progressiveContainer.addEventListener('mouseenter', pauseProgress);
+        progressiveContainer.addEventListener('mouseleave', resumeProgress);
+
+        // Touch Swipe gestures for mobile
+        let startX = 0;
+        let dist = 0;
+
+        progressiveContainer.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            dist = 0;
+            pauseProgress();
+        }, { passive: true });
+
+        progressiveContainer.addEventListener('touchmove', (e) => {
+            dist = e.touches[0].clientX - startX;
+        }, { passive: true });
+
+        progressiveContainer.addEventListener('touchend', () => {
+            if (Math.abs(dist) > 40) {
+                if (dist < 0) {
+                    updateActiveSlide(activeIndex + 1);
+                } else {
+                    updateActiveSlide(activeIndex - 1);
+                }
+            } else {
+                resumeProgress();
+            }
+        });
+
+        // Initialize first slide
+        updateActiveSlide(0);
+    }
+
+    // ==========================================================================
+    // 9. Intersection Observer Scroll Reveal System
+    // ==========================================================================
+    const revealElements = document.querySelectorAll('.reveal');
+
+    if ('IntersectionObserver' in window && revealElements.length > 0) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px 0px -40px 0px',
+            threshold: 0.12
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    } else {
+        revealElements.forEach(el => el.classList.add('revealed'));
+    }
 });
+
+
+
