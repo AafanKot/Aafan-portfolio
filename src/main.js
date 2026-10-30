@@ -188,7 +188,7 @@ function innovate() {
             bubbleNodes.forEach((node) => {
                 if (node.style.display === 'none') return;
 
-                const isHighlight = node.classList.contains('highlight-java') || node.classList.contains('highlight-android');
+                const isHighlight = node.classList.contains('highlight-java') || node.classList.contains('highlight-android') || node.classList.contains('highlight-mern');
                 const radius = isHighlight ? 42 : 32;
 
                 const randomX = (Math.random() - 0.5) * (rawWidth - padding * 2);
@@ -236,28 +236,29 @@ function innovate() {
             const isMobile = window.innerWidth < 768;
             const rawWidth = bubbleCanvas.offsetWidth || (isMobile ? 320 : 900);
             const rawHeight = bubbleCanvas.offsetHeight || (isMobile ? 380 : 380);
-            const maxX = (rawWidth / 2) - 35;
-            const maxY = (rawHeight / 2) - 35;
 
             // 1. Move nodes & Bounce off Walls
             nodeMap.forEach(node => {
                 node.x += node.vx;
                 node.y += node.vy;
 
+                const limitX = (rawWidth / 2) - node.radius - 4;
+                const limitY = (rawHeight / 2) - node.radius - 4;
+
                 // Wall Collisions (Reverse direction on impact)
-                if (node.x > maxX) {
-                    node.x = maxX;
+                if (node.x > limitX) {
+                    node.x = limitX;
                     node.vx = -Math.abs(node.vx);
-                } else if (node.x < -maxX) {
-                    node.x = -maxX;
+                } else if (node.x < -limitX) {
+                    node.x = -limitX;
                     node.vx = Math.abs(node.vx);
                 }
 
-                if (node.y > maxY) {
-                    node.y = maxY;
+                if (node.y > limitY) {
+                    node.y = limitY;
                     node.vy = -Math.abs(node.vy);
-                } else if (node.y < -maxY) {
-                    node.y = -maxY;
+                } else if (node.y < -limitY) {
+                    node.y = -limitY;
                     node.vy = Math.abs(node.vy);
                 }
 
